@@ -8,7 +8,6 @@ import propTypes from "prop-types";
 const Phonebook = ({name, number}) => {
     const [contacts, setContacts] = useState(() => { return JSON.parse(window.localStorage.getItem("contacts")) ?? "" });
     const [filter, setFilter] = useState("");
-    console.log(contacts);
     useEffect(
         () => {
             window.localStorage.setItem("contacts", JSON.stringify(contacts));
@@ -63,7 +62,6 @@ const Phonebook = ({name, number}) => {
         return filteredContacts;
     }
     const contactsFilter = getFilteredContacts();
-    console.log(contactsFilter);
     return (
         <div className={styles.container}>
             <h2 className={styles.title}>Contacts</h2>
