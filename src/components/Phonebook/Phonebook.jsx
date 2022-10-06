@@ -6,7 +6,7 @@ import styles from "./Phonebook.module.css";
 import propTypes from "prop-types";
 
 const Phonebook = ({name, number}) => {
-    const [contacts, setContacts] = useState(() => { return JSON.parse(window.localStorage.getItem("contacts")) ?? "" });
+    const [contacts, setContacts] = useState(() => { return JSON.parse(window.localStorage.getItem("contacts")) ?? [] });
     const [filter, setFilter] = useState("");
     useEffect(
         () => {
@@ -62,6 +62,7 @@ const Phonebook = ({name, number}) => {
         return filteredContacts;
     }
     const contactsFilter = getFilteredContacts();
+    console.log(contactsFilter);
     return (
         <div className={styles.container}>
             <h2 className={styles.title}>Contacts</h2>
